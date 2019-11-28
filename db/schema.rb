@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_024606) do
+ActiveRecord::Schema.define(version: 2019_11_28_035811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,23 @@ ActiveRecord::Schema.define(version: 2019_11_27_024606) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "startingcharacteristics", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "species_id", null: false
+    t.bigint "characteristic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["characteristic_id"], name: "index_startingcharacteristics_on_characteristic_id"
+    t.index ["species_id"], name: "index_startingcharacteristics_on_species_id"
+  end
+
+  add_foreign_key "startingcharacteristics", "characteristics"
+  add_foreign_key "startingcharacteristics", "species"
 end
