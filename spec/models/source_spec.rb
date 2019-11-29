@@ -10,6 +10,7 @@ RSpec.describe Source, type: :model do
     it { should have_many(:attitudes) }
     it { should have_many(:character_classes) }
     it { should have_many(:duties) }
+    it { should have_many(:hooks) }
   end
 
   describe 'Validations' do
