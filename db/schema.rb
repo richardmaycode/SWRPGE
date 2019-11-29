@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_025058) do
+ActiveRecord::Schema.define(version: 2019_11_29_211028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attitudes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "source_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "characteristics", force: :cascade do |t|
     t.string "name"
@@ -31,6 +39,13 @@ ActiveRecord::Schema.define(version: 2019_11_29_025058) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["characteristic_id"], name: "index_skills_on_characteristic_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "name"
+    t.integer "page"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "species", force: :cascade do |t|
