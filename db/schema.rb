@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_211028) do
+ActiveRecord::Schema.define(version: 2019_11_29_224735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2019_11_29_211028) do
     t.integer "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "character_classes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "source_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["source_id"], name: "index_character_classes_on_source_id"
   end
 
   create_table "characteristics", force: :cascade do |t|
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_211028) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "character_classes", "sources"
   add_foreign_key "skills", "characteristics"
   add_foreign_key "startingcharacteristics", "characteristics"
   add_foreign_key "startingcharacteristics", "species"
