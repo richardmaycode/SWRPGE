@@ -6,6 +6,7 @@ class Source < ApplicationRecord
 	has_many :force_abilities
 	has_many :force_powers
 	has_many :hooks
+	has_many :primary_motivations
 	has_many :obligations
 # Validations
 	validates :name, presence: true

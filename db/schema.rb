@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_11_30_195403) do
   end
 
   create_table "primary_motivations", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.text "description"
     t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
