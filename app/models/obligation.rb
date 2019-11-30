@@ -1,7 +1,7 @@
 class Obligation < ApplicationRecord
-#Associations
-belongs_to :source, optional: true
+  #Associations
+  belongs_to :source, optional: true
 
-# Validations
+  # Validations
   validates :name, :description, presence: true
 end

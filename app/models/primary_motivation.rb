@@ -1,7 +1,8 @@
 class PrimaryMotivation < ApplicationRecord
-# Associations
+  # Associations
   belongs_to :source, optional: true
+  has_many :secondary_motivations
 
-# Validations
+  # Validations
   validates :name, :description, presence: true
 end

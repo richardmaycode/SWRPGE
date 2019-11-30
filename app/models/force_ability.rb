@@ -1,8 +1,8 @@
 class ForceAbility < ApplicationRecord
-# Assocations 
+  # Assocations 
   belongs_to :source, optional: true
   belongs_to :force_power
 
-# Validations
+  # Validations
   validates :name, :description, presence: true
 end

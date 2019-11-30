@@ -1,6 +1,7 @@
 class Characteristic < ApplicationRecord
-# Associations
+  # Associations
 	has_many :startingcharacteristics
-# Validations
+  
+  # Validations
   validates :name, :description, :abbreviation, presence: true
 end

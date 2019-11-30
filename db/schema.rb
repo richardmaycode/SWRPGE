@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_195403) do
+ActiveRecord::Schema.define(version: 2019_11_30_200337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,17 @@ ActiveRecord::Schema.define(version: 2019_11_30_195403) do
     t.index ["source_id"], name: "index_primary_motivations_on_source_id"
   end
 
+  create_table "secondary_motivations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "source_id"
+    t.bigint "primary_motivation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["primary_motivation_id"], name: "index_secondary_motivations_on_primary_motivation_id"
+    t.index ["source_id"], name: "index_secondary_motivations_on_source_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "abbreviation"
     t.string "name"
@@ -151,6 +162,8 @@ ActiveRecord::Schema.define(version: 2019_11_30_195403) do
   add_foreign_key "hooks", "sources"
   add_foreign_key "obligations", "sources"
   add_foreign_key "primary_motivations", "sources"
+  add_foreign_key "secondary_motivations", "primary_motivations"
+  add_foreign_key "secondary_motivations", "sources"
   add_foreign_key "skills", "characteristics"
   add_foreign_key "startingcharacteristics", "characteristics"
   add_foreign_key "startingcharacteristics", "species"

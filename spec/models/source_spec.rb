@@ -13,9 +13,9 @@ RSpec.describe Source, type: :model do
     it { should have_many(:force_abilities) }
     it { should have_many(:force_powers) }
     it { should have_many(:hooks) }
+    it { should have_many(:primary_motivations) }
     it { should have_many(:obligations) }
-    it { should have_many(:obligations) }
-
+    it { should have_many(:secondary_motivations) }
   end
 
   describe 'Validations' do

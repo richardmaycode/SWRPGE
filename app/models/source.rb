@@ -1,5 +1,5 @@
 class Source < ApplicationRecord
-# Associations
+	# Associations
 	has_many :attitudes
 	has_many :character_classes
 	has_many :duties
@@ -8,6 +8,8 @@ class Source < ApplicationRecord
 	has_many :hooks
 	has_many :primary_motivations
 	has_many :obligations
-# Validations
+  has_many :secondary_motivations
+  
+  # Validations
 	validates :name, presence: true
 end

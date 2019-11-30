@@ -1,15 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe PrimaryMotivation, type: :model do
+RSpec.describe SecondaryMotivation, type: :model do
   subject {
     described_class.create(name: 'Test', 
                           description: 'Testing', 
-                          source: Source.create(name: 'Test', page: 25))
+                          source: Source.create(name: 'Test', page: 25),
+                          primary_motivation: PrimaryMotivation.create(name: "Test", description: "testing")
+                          )
   }
 
   describe 'Associations' do
     it { should belong_to(:source).optional }
-    it { should have_many(:secondary_motivations) }
+    it { should belong_to(:primary_motivation) }
   end
 
   describe 'Validations' do
