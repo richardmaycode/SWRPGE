@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_165747) do
+ActiveRecord::Schema.define(version: 2019_11_30_195403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,15 +18,16 @@ ActiveRecord::Schema.define(version: 2019_11_30_165747) do
   create_table "attitudes", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "source_id"
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["source_id"], name: "index_attitudes_on_source_id"
   end
 
   create_table "character_classes", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_character_classes_on_source_id"
@@ -43,16 +44,27 @@ ActiveRecord::Schema.define(version: 2019_11_30_165747) do
   create_table "duties", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_duties_on_source_id"
   end
 
+  create_table "force_abilities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "source_id"
+    t.bigint "force_power_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["force_power_id"], name: "index_force_abilities_on_force_power_id"
+    t.index ["source_id"], name: "index_force_abilities_on_source_id"
+  end
+
   create_table "force_powers", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_force_powers_on_source_id"
@@ -61,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_11_30_165747) do
   create_table "hooks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_hooks_on_source_id"
@@ -70,10 +82,19 @@ ActiveRecord::Schema.define(version: 2019_11_30_165747) do
   create_table "obligations", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_obligations_on_source_id"
+  end
+
+  create_table "primary_motivations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "source_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["source_id"], name: "index_primary_motivations_on_source_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -121,11 +142,15 @@ ActiveRecord::Schema.define(version: 2019_11_30_165747) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attitudes", "sources"
   add_foreign_key "character_classes", "sources"
   add_foreign_key "duties", "sources"
+  add_foreign_key "force_abilities", "force_powers"
+  add_foreign_key "force_abilities", "sources"
   add_foreign_key "force_powers", "sources"
   add_foreign_key "hooks", "sources"
   add_foreign_key "obligations", "sources"
+  add_foreign_key "primary_motivations", "sources"
   add_foreign_key "skills", "characteristics"
   add_foreign_key "startingcharacteristics", "characteristics"
   add_foreign_key "startingcharacteristics", "species"

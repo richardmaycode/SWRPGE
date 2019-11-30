@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe ForcePower, type: :model do
+RSpec.describe ForceAbility, type: :model do
   subject {
     described_class.create(name: 'Test', 
                           description: 'Testing', 
-                        source: Source.create(name: 'Test', page: 25))
+                          source: Source.create(name: 'Test', page: 25), 
+                          force_power: ForcePower.create(name: 'Test', description: 'Testing', source: Source.last))
   }
 
   describe 'Associations' do
     it { should belong_to(:source).optional }
-    it { should have_many(:force_abilities) }
+    it { should belong_to(:force_power) }
   end
 
   describe 'Validations' do

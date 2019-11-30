@@ -4,7 +4,7 @@ class CreateAttitudes < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :description
 
-      t.integer :source_id
+      t.belongs_to :source, foreign_key: true
       t.timestamps
     end
   end

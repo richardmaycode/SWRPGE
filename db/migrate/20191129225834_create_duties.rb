@@ -3,7 +3,7 @@ class CreateDuties < ActiveRecord::Migration[6.0]
     create_table :duties do |t|
       t.string :name
       t.text :description
-      t.belongs_to :source, null: false, foreign_key: true
+      t.belongs_to :source, foreign_key: true
 
       t.timestamps
     end
