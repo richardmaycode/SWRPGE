@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_202655) do
+ActiveRecord::Schema.define(version: 2019_12_01_160421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "armors", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "defense"
+    t.integer "encumbrance"
+    t.integer "hp"
+    t.integer "price"
+    t.integer "rarity"
+    t.integer "soak"
+    t.bigint "source_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["source_id"], name: "index_armors_on_source_id"
+  end
 
   create_table "attitudes", force: :cascade do |t|
     t.string "name"
@@ -170,6 +185,7 @@ ActiveRecord::Schema.define(version: 2019_11_30_202655) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "armors", "sources"
   add_foreign_key "attitudes", "sources"
   add_foreign_key "careers", "sources"
   add_foreign_key "careers_skills", "careers"
