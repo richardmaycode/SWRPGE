@@ -30,6 +30,9 @@ module SWDnDReference
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.fixture_replacement :factory_bot
+      g.system_tests = nil
+    end
   end
 end
