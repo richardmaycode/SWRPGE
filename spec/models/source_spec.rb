@@ -7,6 +7,7 @@ RSpec.describe Source, type: :model do
   }
   
   describe 'Associations' do
+    it { should have_many(:armors) }
     it { should have_many(:attitudes) }
     it { should have_many(:careers) }
     it { should have_many(:character_classes) }

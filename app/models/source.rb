@@ -1,5 +1,6 @@
 class Source < ApplicationRecord
 	# Associations
+	has_many :armors
 	has_many :attitudes
 	has_many :careers
 	has_many :character_classes
