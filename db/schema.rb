@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_202100) do
+ActiveRecord::Schema.define(version: 2019_11_30_202655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2019_11_30_202100) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_careers_on_source_id"
+  end
+
+  create_table "careers_skills", id: false, force: :cascade do |t|
+    t.bigint "career_id", null: false
+    t.bigint "skill_id", null: false
+    t.index ["career_id"], name: "index_careers_skills_on_career_id"
+    t.index ["skill_id"], name: "index_careers_skills_on_skill_id"
   end
 
   create_table "character_classes", force: :cascade do |t|
@@ -165,6 +172,8 @@ ActiveRecord::Schema.define(version: 2019_11_30_202100) do
 
   add_foreign_key "attitudes", "sources"
   add_foreign_key "careers", "sources"
+  add_foreign_key "careers_skills", "careers"
+  add_foreign_key "careers_skills", "skills"
   add_foreign_key "character_classes", "sources"
   add_foreign_key "duties", "sources"
   add_foreign_key "force_abilities", "force_powers"

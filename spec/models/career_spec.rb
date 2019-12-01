@@ -10,6 +10,7 @@ RSpec.describe Career, type: :model do
 
   describe 'Associations' do
     it { should belong_to(:source).optional }
+    it { should have_and_belong_to_many(:skills) }
   end
 
   describe 'Validations' do

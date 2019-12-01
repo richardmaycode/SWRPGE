@@ -6,6 +6,7 @@ RSpec.describe Skill, type: :model do
   }
   describe 'Assocations' do
     it { should belong_to(:characteristic) }
+    it { should have_and_belong_to_many(:careers) }
   end
   describe 'Validations' do
     it 'is valid with valid attributes' do
