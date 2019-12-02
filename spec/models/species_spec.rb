@@ -6,8 +6,6 @@ RSpec.describe Species, type: :model do
                         description: "Testing")
   }
   describe 'Associations' do
-    it { should have_many(:startingcharacteristics) }
-    it { should have_many(:characteristics).through(:startingcharacteristics) }
   end
   describe 'Validations' do
     it 'is valid with valid attributes' do
