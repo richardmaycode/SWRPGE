@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_160421) do
+ActiveRecord::Schema.define(version: 2019_12_03_022117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(version: 2019_12_01_160421) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id"], name: "index_character_classes_on_source_id"
+  end
+
+  create_table "character_stats", force: :cascade do |t|
+    t.integer "brawn"
+    t.integer "agility"
+    t.integer "intellect"
+    t.integer "cunning"
+    t.integer "willpower"
+    t.integer "presence"
+    t.integer "wound_threshold"
+    t.integer "strain_threshold"
+    t.integer "experience"
+    t.bigint "statable_id"
+    t.string "statable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["statable_type", "statable_id"], name: "index_character_stats_on_statable_type_and_statable_id"
   end
 
   create_table "characteristics", force: :cascade do |t|
@@ -160,18 +177,13 @@ ActiveRecord::Schema.define(version: 2019_12_01_160421) do
   create_table "species", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.bigint "source_id"
+    t.string "statable_type"
+    t.bigint "statable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "startingcharacteristics", force: :cascade do |t|
-    t.integer "value"
-    t.bigint "species_id", null: false
-    t.bigint "characteristic_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["characteristic_id"], name: "index_startingcharacteristics_on_characteristic_id"
-    t.index ["species_id"], name: "index_startingcharacteristics_on_species_id"
+    t.index ["source_id"], name: "index_species_on_source_id"
+    t.index ["statable_type", "statable_id"], name: "index_species_on_statable_type_and_statable_id"
   end
 
   create_table "talents", force: :cascade do |t|
@@ -201,6 +213,5 @@ ActiveRecord::Schema.define(version: 2019_12_01_160421) do
   add_foreign_key "secondary_motivations", "primary_motivations"
   add_foreign_key "secondary_motivations", "sources"
   add_foreign_key "skills", "characteristics"
-  add_foreign_key "startingcharacteristics", "characteristics"
-  add_foreign_key "startingcharacteristics", "species"
+  add_foreign_key "species", "sources"
 end

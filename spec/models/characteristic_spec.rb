@@ -7,7 +7,6 @@ RSpec.describe Characteristic, type: :model do
                         abbreviation: "TS")
   }
   describe 'Associations' do
-    it { should have_many(:startingcharacteristics) }
   end
   
   describe 'Validations' do

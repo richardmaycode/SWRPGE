@@ -13,10 +13,3 @@ Characteristic.create(name: "Presence", description: "A character's Presence cha
 Characteristic.create(name: "Willpower", description: "The Willpower characteristic reflects a character's discipline, self-control, mental fortitude, and faith. Characters with a high Willpower can withstand stress and fatigue, remain composed during chaotic situations, and exert influence over the weaker-willed. Willpower is used for a number of skills, such as Coercion and Vigilance. Willpower is also used to determine a character's starting strain threshold.", abbreviation: "wil")
 
 s = Species.create(name: "Aleena", description: "Testing" )
-
-Startingcharacteristic.create(value: 1, species: s, characteristic_id: 2 )
-Startingcharacteristic.create(value: 3, species: s, characteristic_id: 1 )
-Startingcharacteristic.create(value: 2, species: s, characteristic_id: 4 )
-Startingcharacteristic.create(value: 2, species: s, characteristic_id: 3 )
-Startingcharacteristic.create(value: 2, species: s, characteristic_id: 6 )
-Startingcharacteristic.create(value: 2, species: s, characteristic_id: 5 )

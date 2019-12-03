@@ -6,7 +6,9 @@ RSpec.describe Species, type: :model do
                         description: "Testing")
   }
   describe 'Associations' do
+    it { should belong_to(:source).optional }
   end
+  
   describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
