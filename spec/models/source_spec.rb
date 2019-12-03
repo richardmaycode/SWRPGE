@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Source, type: :model do
-  subject {
-    described_class.create(name: 'Source', 
-                          page: 15)
-  }
+  subject { create(:source) }
   
   describe 'Associations' do
     it { should have_many(:armors) }

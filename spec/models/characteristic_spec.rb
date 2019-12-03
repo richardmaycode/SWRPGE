@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Characteristic, type: :model do
-  subject {
-    described_class.new(name: "Test", 
-                        description: "Testing", 
-                        abbreviation: "TS")
-  }
-  describe 'Associations' do
-  end
+  subject { create(:characteristic) }
   
   describe 'Validations' do
     it 'is valid with valid attributes' do
