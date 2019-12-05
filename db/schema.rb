@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_022117) do
   create_table "careers", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "source_id", null: false
+    t.bigint "source_id"
     t.integer "free_ranks"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
