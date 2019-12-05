@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Duty, type: :model do
-  subject {
-    described_class.create(name: 'Test', 
-                          description: 'Testing', 
-                        source: Source.create(name: 'Test', page: 25))
-  }
+  subject { create(:duty) }
 
   describe 'Associations' do
     it { should belong_to(:source).optional }
