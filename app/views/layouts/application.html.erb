@@ -10,6 +10,40 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class='container'>
+  <div class='system'>
+    <div class='system-container'>
+    <ul class='system-nav'>
+      <li class='system-nav-item selected'>
+        <i class="fad fa-book-open fa-2x"></i>
+        <span class="system-nav-label selected">Reference</span>
+      </li>
+      <li class='system-nav-item'>
+        <i class="fad fa-address-card fa-2x"></i>
+        <span class='system-nav-label'>Character</span>
+      </li>
+      <li class='system-nav-item'>
+        <i class="fad fa-chess-rook-alt fa-2x"></i>
+        <span class='system-nav-label'>Campaign</span>
+      </li>
+    </ul>
+    </div>
+  </div>
+  <div class='display-nav'>
+    <div class='system-container'>
+      <ul class='system-nav'>
+        <li class='system-nav-item '>Attributes</li>
+        <li class='system-nav-item '>Careers</li>
+        <li class='system-nav-item '>Moralities</li>
+        <li class='system-nav-item '>Species</li>
+        <li class='system-nav-item '>Items</li>
+      </ul>
+    </div>
+  </div>
+  <div class='main'><%= yield %></div>
+</div>
+
+<script src="https://kit.fontawesome.com/383642a4ef.js" crossorigin="anonymous"></script>
+
   </body>
 </html>

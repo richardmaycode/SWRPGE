@@ -30,3 +30,60 @@
  #6065C0
  #FF8B41
  */
+
+
+ body { margin: 0; font-family: Helvetica, Arial, Sans-Serif;}
+.container {
+  display: grid;
+  grid-template-columns: 110px 250px auto;
+  grid-template-rows: 100vh;
+  grid-template-areas:
+    "System Display Main";
+}
+
+.system {
+  grid-area: System;
+  background: #434C69;
+  color: white
+}
+
+.display-nav {
+  grid-area: Display;
+  background: #8E93A5;
+;
+}
+
+.main {
+  grid-area: Main;
+  background: white;
+  margin: 25px;
+}
+
+.system-container {
+  margin: auto;
+  padding: 0px 10px;
+  height: 100%;
+}
+.system-nav {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.system-nav-item {
+  text-align: center;
+  margin: 20px auto;
+  color: white;
+}
+
+.system-nav-label {
+  font-size: 18px
+}
+
+.selected {
+  color: #FF8B41;
+}
