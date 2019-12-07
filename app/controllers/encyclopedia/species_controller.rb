@@ -7,6 +7,7 @@ class Encyclopedia::SpeciesController < ApplicationController
   def show; end
 
   def new
+    @species = Species.new
   end
 
   def create

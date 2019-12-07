@@ -1,2 +1,7 @@
 %h1 Encyclopedia::Species#index
 %p Find me in app/views/encyclopedia/species/index.html.haml
+
+= link_to "Create Species", [:new, :encyclopedia, :species]
+%ul
+- @species.each do |s|
+    %li= link_to s.name, [:encyclopedia, s]

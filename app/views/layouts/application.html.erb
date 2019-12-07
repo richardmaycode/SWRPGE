@@ -32,11 +32,12 @@
   <div class='display-nav'>
     <div class='system-container'>
       <ul class='system-nav'>
-        <li class='system-nav-item '>Attributes</li>
-        <li class='system-nav-item '>Careers</li>
-        <li class='system-nav-item '>Moralities</li>
-        <li class='system-nav-item '>Species</li>
-        <li class='system-nav-item '>Items</li>
+        <li class='system-nav-item'>Attributes</li>
+        <li class='system-nav-item'>Careers</li>
+        <li class='system-nav-item'>Moralities</li>
+        <li class='system-nav-item'><%= link_to "Species", encyclopedia_species_index_path %></li>
+        <li class='system-nav-item'>Items</li>
+        <li class='system-nav-item'><%= link_to "Sources", [:encyclopedia, :sources] %><li>
       </ul>
     </div>
   </div>

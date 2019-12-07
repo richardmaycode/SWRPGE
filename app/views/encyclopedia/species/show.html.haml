@@ -1,5 +1,7 @@
 %h1= "Species>" + @species.name
 %p= @species.source.name unless @species.source.nil?
+
+= link_to "edit", [:edit, :encyclopedia, @species]
 %h2 Description
 = @species.description
 

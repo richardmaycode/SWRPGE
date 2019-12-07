@@ -1,4 +1,8 @@
 = form_for([:encyclopedia, @species]) do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  %br
   = f.label :description
   = f.rich_text_area :description
   = f.label :source_id, 'Source'
@@ -7,3 +11,4 @@
   %br
   %br
   = f.submit
+  = link_to('cancel', @species.new_record? ? [:index, :encyclopedia, :species] : [ :encyclopedia, @species])
