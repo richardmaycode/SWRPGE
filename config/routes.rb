@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   get '/encyclopedia', to: redirect('/encyclopedia/main')
-  root to: 'encyclopedia/main'
+  root to: '/encyclopedia/main', controller: 'encyclopedia/pages', action: 'main'
 end
