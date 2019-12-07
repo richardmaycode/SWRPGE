@@ -5,4 +5,6 @@ class Species < ApplicationRecord
   
   # Validations
   validates :name, :description, presence: true
+
+  delegate :brawn, :agility, :intellect, :cunning, :willpower, :presence, :wound_threshold, :strain_threshold, :experience, to: :character_stat
 end

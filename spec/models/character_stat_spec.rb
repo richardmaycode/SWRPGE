@@ -22,6 +22,11 @@ RSpec.describe CharacterStat, type: :model do
       expect(subject).to_not be_valid
     end
 
+    it 'should be invalid with a intellect stat' do
+      subject.intellect = nil
+      expect(subject).to_not be_valid
+    end
+
     it 'should be invalid with a cunning stat' do
       subject.cunning = nil
       expect(subject).to_not be_valid
