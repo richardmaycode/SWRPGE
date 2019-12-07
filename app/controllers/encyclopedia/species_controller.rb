@@ -36,7 +36,7 @@ class Encyclopedia::SpeciesController < ApplicationController
 
   private
     def species_params
-      params.require(:species).permit(:name, :description)
+      params.require(:species).permit(:name, :description, :source_id)
     end
 
     def set_record

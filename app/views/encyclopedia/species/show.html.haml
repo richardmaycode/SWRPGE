@@ -1,7 +1,7 @@
 %h1= "Species>" + @species.name
-
+%p= @species.source.name unless @species.source.nil?
 %h2 Description
-.desc_box= @species.description
+= @species.description
 
 %h2 Starting Stats
 %span= "Brawn: " + @species.brawn.to_s

@@ -1,4 +1,9 @@
 = form_for([:encyclopedia, @species]) do |f|
   = f.label :description
   = f.rich_text_area :description
+  = f.label :source_id, 'Source'
+  %br
+  = f.select :source_id, options_from_collection_for_select(Source.all.collect, 'id', 'name')
+  %br
+  %br
   = f.submit
