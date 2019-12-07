@@ -7,6 +7,7 @@ RSpec.describe Species, type: :model do
   }
   describe 'Associations' do
     it { should belong_to(:source).optional }
+    it { should have_one(:character_stat) }
   end
   
   describe 'Validations' do
