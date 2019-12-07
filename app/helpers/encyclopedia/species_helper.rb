@@ -1,0 +1,2 @@
+module Encyclopedia::SpeciesHelper
+end

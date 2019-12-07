@@ -87,3 +87,8 @@
 .selected {
   color: #FF8B41;
 }
+
+.desc_box {
+  height:350px;
+  overflow:auto;
+}

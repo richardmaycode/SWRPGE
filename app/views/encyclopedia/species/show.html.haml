@@ -1,0 +1,24 @@
+%h1= @species.name
+
+%h2 Description
+.desc_box= @species.description
+
+%h2 Starting Stats
+%span= "Brawn: " + @species.brawn.to_s
+%br
+%span= "Agility: " + @species.agility.to_s
+%br
+%span= "Intellect: " + @species.intellect.to_s
+%br
+%span= "Cunning: " + @species.cunning.to_s
+%br
+%span= "Willpower: " + @species.willpower.to_s
+%br
+%span= "Presence: " + @species.presence.to_s
+%br
+%span= "Wounds Threshold: " + @species.wound_threshold.to_s
+%br
+%span= "Strain Threshold: " + @species.strain_threshold.to_s
+%br
+%span= "XP: " + @species.experience.to_s
+%br
