@@ -1,9 +1,14 @@
-class Encyclopedia::CharacteristicsController < ApplicationController
-  def index
-    @characteristics = Characteristic.all
-  end
+# frozen_string_literal: true
 
-  def show
-    @characteristic = Characteristic.find(params[:id])
+module Encyclopedia
+  # Controller for characteritics model
+  class CharacteristicsController < ApplicationController
+    def index
+      @characteristics = Characteristic.all
+    end
+
+    def show
+      @characteristic = Characteristic.find(params[:id])
+    end
   end
 end
