@@ -11,11 +11,12 @@ module Encyclopedia
     def show; end
 
     def new
-      @species = Species.new
+			@species = Species.new
+			@species.build_character_stat
     end
 
     def create
-      @species = Species.create(species_params)
+			@species = Species.new(species_params)
       if @species.save
         redirect_to [:encyclopedia, @species]
       else

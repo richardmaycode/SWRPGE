@@ -1,4 +1,7 @@
-= form_for([:encyclopedia, @species]) do |f|
+%ul
+  - @species.errors.full_messages.each do |e|
+    %li= e.text
+= form_with model: [:encyclopedia, @species] do |f|
   = f.label :name
   = f.text_field :name
   %br
@@ -11,9 +14,32 @@
   = f.rich_text_area :description
   
   %br
-  = fields_for :character_stat, @species.character_stat do |ff|
+  = f.fields_for :character_stat, @species.character_stat do |ff|
     = ff.label :brawn
     = ff.text_field :brawn
-    
+    %br
+    = ff.label :agility
+    = ff.text_field :agility
+    %br
+    = ff.label :intellect
+    = ff.text_field :intellect
+    %br
+    = ff.label :cunning
+    = ff.text_field :cunning
+    %br
+    = ff.label :willpower
+    = ff.text_field :willpower
+    %br
+    = ff.label :presence
+    = ff.text_field :presence
+    %br    
+    = ff.label :wound_threshold
+    = ff.text_field :wound_threshold
+    %br
+    = ff.label :strain_threshold
+    = ff.text_field :strain_threshold
+    %br
+    = ff.label :experience
+    = ff.text_field :experience
   = f.submit
   = link_to('cancel', @species.new_record? ? [:encyclopedia, :species, :index] : [ :encyclopedia, @species])
