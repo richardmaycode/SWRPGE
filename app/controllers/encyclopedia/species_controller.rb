@@ -1,46 +1,61 @@
-class Encyclopedia::SpeciesController < ApplicationController
-  before_action :set_record, only: [:show, :edit, :update, :delete]
-  def index
-    @species = Species.all
-  end
+# frozen_string_literal: true
 
-  def show; end
-
-  def new
-    @species = Species.new
-  end
-
-  def create
-    @species = Species.create(species_params)
-    if @species.save
-      redirect_to @species
-    else
-      render :new
+module Encyclodpedia
+  # Controler for the species class
+  class SpeciesController < ApplicationController
+    before_action :set_record, only: %i[show edit update delete]
+    def index
+      @species = Species.all
     end
-  end
 
-  def edit; end
+    def show; end
 
-  def update
-    @species.update(species_params)
-    if @species.save
-      redirect_to [:encyclopedia, @species]
-    else
-      render :edit
+    def new
+      @species = Species.new
     end
-  end
 
-  def delete
-    @species.delete
-    redirect_to species_route
-  end
+    def create
+      @species = Species.create(species_params)
+      if @species.save
+        redirect_to @species
+      else
+        render :new
+      end
+    end
 
-  private
+    def edit; end
+
+    def update
+      @species.update(species_params)
+      if @species.save
+        redirect_to [:encyclopedia, @species]
+      else
+        render :edit
+      end
+    end
+
+    def delete
+      @species.delete
+      redirect_to species_route
+    end
+
+    private
+
     def species_params
-      params.require(:species).permit(:name, :description, :source_id)
+      params.require(:species).permit(
+        :name, :description, :source_id,
+        character_stat_attributes:
+          %i[brawn agility
+             intellect cunning
+             willpower presence
+             wound_threshold
+             strain_threshold
+             experience]
+      )
     end
 
     def set_record
       @species = Species.find(params[:id])
     end
+  end
 end
