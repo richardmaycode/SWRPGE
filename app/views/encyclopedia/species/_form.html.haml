@@ -2,13 +2,18 @@
   = f.label :name
   = f.text_field :name
   %br
+  = f.label :source_id, 'Source'
+  %br
+    = f.select :source_id, options_from_collection_for_select(Source.all.collect, 'id', 'name')
+  %br
   %br
   = f.label :description
   = f.rich_text_area :description
-  = f.label :source_id, 'Source'
+  
   %br
-  = f.select :source_id, options_from_collection_for_select(Source.all.collect, 'id', 'name')
-  %br
-  %br
+  = fields_for :character_stat, @species.character_stat do |ff|
+    = ff.label :brawn
+    = ff.text_field :brawn
+    
   = f.submit
-  = link_to('cancel', @species.new_record? ? [:index, :encyclopedia, :species] : [ :encyclopedia, @species])
+  = link_to('cancel', @species.new_record? ? [:encyclopedia, :species, :index] : [ :encyclopedia, @species])

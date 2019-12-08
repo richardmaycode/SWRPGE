@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SecondaryMotivation < ApplicationRecord
-  # Associations  
+  # Associations
   belongs_to :source, optional: true
   belongs_to :primary_motivation
 

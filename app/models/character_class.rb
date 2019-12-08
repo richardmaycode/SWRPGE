@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CharacterClass < ApplicationRecord
-  #Associations  
+  # Associations
   belongs_to :source, optional: true
 
-  #Validaitons
+  # Validaitons
   validates :name, :description, presence: true
 end

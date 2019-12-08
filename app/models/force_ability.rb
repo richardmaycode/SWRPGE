@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ForceAbility < ApplicationRecord
-  # Assocations 
+  # Assocations
   belongs_to :source, optional: true
   belongs_to :force_power
 

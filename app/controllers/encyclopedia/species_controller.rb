@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Encyclodpedia
+module Encyclopedia
   # Controler for the species class
   class SpeciesController < ApplicationController
     before_action :set_record, only: %i[show edit update delete]
@@ -17,7 +17,7 @@ module Encyclodpedia
     def create
       @species = Species.create(species_params)
       if @species.save
-        redirect_to @species
+        redirect_to [:encyclopedia, @species]
       else
         render :new
       end

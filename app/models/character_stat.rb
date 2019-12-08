@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CharacterStat < ApplicationRecord
   # Associations
   belongs_to :statable, polymorphic: true

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Career < ApplicationRecord
-  #Associations
+  # Associations
   belongs_to :source, optional: true
   has_and_belongs_to_many :skills
-  
-  #validations
+
+  # validations
   validates :name, :description, presence: true
 end

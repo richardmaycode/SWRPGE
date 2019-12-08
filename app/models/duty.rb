@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Duty < ApplicationRecord
-  #Associations
+  # Associations
   belongs_to :source, optional: true
 
   # Validations
