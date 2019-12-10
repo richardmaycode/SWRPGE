@@ -1,26 +1,63 @@
-%h1= "Species>" + @species.name
-%p= @species.source.name unless @species.source.nil?
+.has-text-centered
+  %h1.title.is-1= @species.name
+  .subtitle.is-5
+    %i.fal.fa-globe
+    Aleen Minor
+%hr
+= link_to "Edit", [:edit, :encyclopedia, @species], class: 'edit-style button is-warning is-light'
 
-= link_to "edit", [:edit, :encyclopedia, @species]
-%h2 Description
+.columns
+  .column
+    %table.table
+      %thead
+        %tr
+          %th Brawn
+          %th Agility
+          %th Intellect
+          %th Cunning
+          %th Willpower
+          %th Presence
+      %tbody
+        %tr
+          %td= @species.brawn
+          %td= @species.agility
+          %td= @species.intellect
+          %td= @species.cunning
+          %td= @species.willpower
+          %td= @species.presence
+  .column
+    %table.table
+      %thead
+        %tr
+          %th{ colspan: 2 } Thresholds
+          %th Experience
+      %tbody
+        %tr
+          %td Wounds
+          %td= @species.wound_threshold
+          %td= @species.experience
+        %tr
+          %td Strain
+          %td= @species.strain_threshold
+
+
+.tabs
+  %ul
+    %li.is-active
+      %a Description
+    %li 
+      %a Homeworld
+    %li
+      %a Physiology
+    %li
+      %a Society
+    %li
+      %a Languages
+    %li
+      %a Force Perception 
+
 = @species.description
 
-%h2 Starting Stats
-%span= "Brawn: " + @species.brawn.to_s
-%br
-%span= "Agility: " + @species.agility.to_s
-%br
-%span= "Intellect: " + @species.intellect.to_s
-%br
-%span= "Cunning: " + @species.cunning.to_s
-%br
-%span= "Willpower: " + @species.willpower.to_s
-%br
-%span= "Presence: " + @species.presence.to_s
-%br
-%span= "Wounds Threshold: " + @species.wound_threshold.to_s
-%br
-%span= "Strain Threshold: " + @species.strain_threshold.to_s
-%br
-%span= "XP: " + @species.experience.to_s
-%br
+%p 
+  Source:
+  = @species.source.name

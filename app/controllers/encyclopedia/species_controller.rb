@@ -46,7 +46,7 @@ module Encyclopedia
       params.require(:species).permit(
         :name, :description, :source_id,
         character_stat_attributes:
-          %i[brawn agility
+          %i[id brawn agility
              intellect cunning
              willpower presence
              wound_threshold
