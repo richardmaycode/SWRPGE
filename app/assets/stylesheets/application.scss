@@ -34,7 +34,7 @@
 
  body { margin: 0; font-family: Helvetica, Arial, Sans-Serif;}
 
- .container {
+ .grid-container {
   display: grid;
   grid-template-columns: 110px 250px auto;
   grid-template-rows: 100vh;
