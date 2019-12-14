@@ -188,6 +188,13 @@ ActiveRecord::Schema.define(version: 2019_12_07_162524) do
     t.index ["source_id"], name: "index_secondary_motivations_on_source_id"
   end
 
+  create_table "silhouettes", force: :cascade do |t|
+    t.integer "size"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "abbreviation"
     t.string "name"
@@ -207,12 +214,15 @@ ActiveRecord::Schema.define(version: 2019_12_07_162524) do
 
   create_table "species", force: :cascade do |t|
     t.string "name"
+    t.string "home_world"
     t.text "description"
     t.bigint "source_id"
     t.string "statable_type"
     t.bigint "statable_id"
+    t.bigint "silhouette_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["silhouette_id"], name: "index_species_on_silhouette_id"
     t.index ["source_id"], name: "index_species_on_source_id"
     t.index ["statable_type", "statable_id"], name: "index_species_on_statable_type_and_statable_id"
   end
@@ -245,5 +255,6 @@ ActiveRecord::Schema.define(version: 2019_12_07_162524) do
   add_foreign_key "secondary_motivations", "primary_motivations"
   add_foreign_key "secondary_motivations", "sources"
   add_foreign_key "skills", "characteristics"
+  add_foreign_key "species", "silhouettes"
   add_foreign_key "species", "sources"
 end

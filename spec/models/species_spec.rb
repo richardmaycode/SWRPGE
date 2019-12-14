@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Species, type: :model do
-  subject {
-    described_class.new(name: "Test",
-                        description: "Testing")
-  }
+  subject { create(:species) }
   describe 'Associations' do
     it { should belong_to(:source).optional }
     it { should have_one(:character_stat) }
+    it { should belong_to(:silhouette) }
   end
   
   describe 'Validations' do

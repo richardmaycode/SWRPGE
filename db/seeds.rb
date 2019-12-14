@@ -12,4 +12,7 @@ Characteristic.create(name: "Intellect", description: "The Intellect characteris
 Characteristic.create(name: "Presence", description: "A character's Presence characteristic is a measure of his moxie, charisma, confidence, and force of personality. Characters with a high Presence make natural leaders, draw attention when they enter a room, can easily strike up a conversation with nearly anyone, and are quick to adapt to social situations. Presence is the key characteristic for interpersonal skills such as Charm and Leadership. </Description>", abbreviation: "pr")
 Characteristic.create(name: "Willpower", description: "The Willpower characteristic reflects a character's discipline, self-control, mental fortitude, and faith. Characters with a high Willpower can withstand stress and fatigue, remain composed during chaotic situations, and exert influence over the weaker-willed. Willpower is used for a number of skills, such as Coercion and Vigilance. Willpower is also used to determine a character's starting strain threshold.", abbreviation: "wil")
 
-s = Species.create(name: "Aleena", description: "Testing" )
+Silhouette.create(size: 1, description: "Testing")
+Silhouette.create(size: 2, description: "Testing")
+Silhouette.create(size: 3, description: "Testing")
+Silhouette.create(size: 4, description: "Testing")

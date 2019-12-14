@@ -10,7 +10,7 @@ class CreateCharacterStats < ActiveRecord::Migration[6.0]
       t.integer :wound_threshold
       t.integer :strain_threshold
       t.integer :experience
-
+      
       t.bigint :statable_id
       t.string :statable_type
       t.timestamps

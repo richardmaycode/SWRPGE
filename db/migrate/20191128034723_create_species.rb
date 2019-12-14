@@ -7,6 +7,7 @@ class CreateSpecies < ActiveRecord::Migration[6.0]
 
       t.belongs_to :source, foreign_key: true
       t.references :statable, polymorphic: true
+      t.references :silhouette, foreign_key: true
       t.timestamps
     end
   end

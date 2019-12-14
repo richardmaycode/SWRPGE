@@ -2,6 +2,8 @@
 %p Find me in app/views/encyclopedia/species/index.html.haml
 
 = link_to "Create Species", [:new, :encyclopedia, :species]
-%ul
-- @species.each do |s|
-    %li= link_to s.name, [:encyclopedia, s]
+.columns.is-multiline
+  - @species.each do |s|
+    .column.is-4
+      .box
+        .title.is-4= link_to s.name, [:encyclopedia, s]
